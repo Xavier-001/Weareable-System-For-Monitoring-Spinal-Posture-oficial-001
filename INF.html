@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
+      animation: fadeInDown 0.8s ease;
+    }
+
+    .header h1 {
+      font-size: 2.8em;
+      margin-bottom: 15px;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+      letter-spacing: 1px;
+    }
+
+    .header p {
+      font-size: 1.3em;
+      opacity: 0.95;
+      font-weight: 300;
+    }
+
+    .back-link {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      padding: 12px 25px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 25px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      font-weight: 600;
+    }
+
+    .back-link:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateX(-5px);
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      animation: fadeIn 1s ease;
+    }
+
+    .tab {
+      background: rgba(255,255,255,0.95);
+      border: none;
+      padding: 18px 35px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 15px;
+      font-weight: 700;
+      font-size: 1.1em;
+      color: #667eea;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tab:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .tab.active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      box-shadow: 0 8px 30px rgba(102,126,234,0.5);
+    }
+
+    .tab-content {
+      display: none;
+      background: white;
+      padding: 50px;
+      border-radius: 25px;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+      animation: fadeInUp 0.5s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .content-section h2 {
+      color: #667eea;
+      font-size: 2.5em;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 4px solid #667eea;
+      font-weight: 700;
+    }
+
+    .content-section h3 {
+      color: #764ba2;
+      font-size: 1.7em;
+      margin: 30px 0 20px 0;
+      font-weight: 600;
+    }
+
+    .content-section h4 {
+      color: #667eea;
+      font-size: 1.3em;
+      margin: 20px 0 10px 0;
+    }
+
+    .info-card {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      border-left: 6px solid #667eea;
+      transition: all 0.3s ease;
+      line-height: 1.8;
+    }
+
+    .info-card:hover {
+      transform: translateX(8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .info-card p {
+      margin: 12px 0;
+      color: #333;
+      font-size: 1.05em;
+    }
+
+    .info-card ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    .info-card li {
+      margin: 8px 0;
+      line-height: 1.6;
+    }
+
+    .info-card strong {
+      color: #667eea;
+      font-weight: 600;
+    }
+
+    .systems-table {
+      width: 100%;
+      margin: 30px 0;
+      overflow-x: auto;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    .systems-table table {
+      width: 100%;
+      min-width: 900px;
+      border-collapse: collapse;
+    }
+
+    .systems-table th {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 15px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 1em;
+    }
+
+    .systems-table td {
+      padding: 15px;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 0.95em;
+    }
+
+    .systems-table tr:hover {
+      background: #f8f9fa;
+    }
+
+    .systems-table tr:last-child {
+      background: #e3f2fd;
+      font-weight: 600;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+      margin: 30px 0;
+      box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+    }
+
+    .highlight-box h3 {
+      color: white;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+
+    .highlight-box p {
+      line-height: 1.8;
+      font-size: 1.05em;
+    }
+
+    .highlight-box ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 15px;
+    }
+
+    .highlight-box li {
+      padding: 10px 0;
+      padding-left: 30px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .highlight-box li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin: 30px 0;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 35px rgba(102,126,234,0.5);
+    }
+
+    .stat-card h4 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .stat-card p {
+      font-size: 1em;
+      opacity: 0.95;
+      line-height: 1.4;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin: 25px 0;
+    }
+
+    .chart-placeholder {
+      background: #f8f9fa;
+      border: 3px solid #667eea;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1em;
+      color: #667eea;
+      font-weight: 600;
+    }
+
+    .formula-box {
+      background: #f8f9fa;
+      padding: 25px;
+      border-radius: 15px;
+      border: 2px solid #667eea;
+      margin: 20px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1em;
+      text-align: center;
+    }
+
+    .comparison-table {
+      width: 100%;
+      margin: 25px 0;
+      border-collapse: collapse;
+    }
+
+    .comparison-table th {
+      background: #667eea;
+      color: white;
+      padding: 15px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .comparison-table td {
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+      vertical-align: top;
+    }
+
+    .comparison-table tr:hover {
+      background: #f5f7fa;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .tab-content {
+        padding: 25px;
+      }
+
+      .header h1 {
+        font-size: 1.8em;
+      }
+
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .systems-table {
+        font-size: 0.85em;
+      }
+
+      .tab {
+        padding: 12px 20px;
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <a href="index.html" class="back-link">← Back</a>
+
+    <div class="header">
+      <h1>WEARABLE SYSTEM FOR MONITORING SPINAL POSTURE</h1>
+      <p>Edwin Casa - Telecommunications Engineering</p>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" onclick="openTab('software')">Software</button>
+      <button class="tab" onclick="openTab('hardware')">Hardware</button>
+      <button class="tab" onclick="openTab('statistics')">Statistics</button>
+    </div>
+
+    <!-- SOFTWARE TAB -->
+    <div id="software" class="tab-content active">
+      <h2>Software Approaches for IMU-Based Spinal Posture Monitoring Systems</h2>
+      
+      <div class="highlight-box">
+        <h3>Introduction and Context</h3>
+        <p>Inertial Measurement Unit (IMU)-based spinal posture monitoring systems have gained significant attention in healthcare, rehabilitation, occupational health, and ergonomics applications. These systems combine accelerometers, gyroscopes, and magnetometers to capture motion data, processing it through sophisticated software algorithms that transform raw sensor signals into actionable clinical and ergonomic information.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Review Scope</h3>
+        <p><strong>24 research systems analyzed</strong> to identify software methodologies and algorithms exhibiting the best characteristics for IMU-based spinal posture monitoring</p>
+        <p><strong>Focus:</strong> Post-2019 publications with robust implementations and validation against reference systems</p>
+        <p><strong>Architecture:</strong> Sensor initialization → calibration routines → raw data collection → preprocessing filters → sensor fusion algorithms → orientation estimation → angle calculation → posture classification → user feedback generation</p>
+      </div>
+
+      <h3> Classification of Software Approaches</h3>
+
+      <div class="info-card">
+        <h4>1. Sensor Fusion Algorithms</h4>
+        <p><strong>Complementary Filters:</strong> Computationally efficient, combining high-pass filtered gyroscope data with low-pass filtered accelerometer data</p>
+        <p><strong>Kalman Filters (EKF, UKF):</strong> Provide optimal state estimation by modeling system dynamics and sensor noise characteristics</p>
+        <p><strong>Madgwick and Mahony Filters:</strong> Utilize gradient descent with quaternion representation, including magnetic distortion compensation</p>
+      </div>
+
+      <div class="info-card">
+        <h4>2. Orientation Representation Methods</h4>
+        <p><strong>Euler Angles:</strong> Offer intuitive interpretation but suffer from gimbal lock</p>
+        <p><strong>Quaternions:</strong> Provide singularity-free representation with efficient computational properties (preferred in modern systems)</p>
+        <p><strong>Rotation Matrices:</strong> Offer direct geometric interpretation but require more resources</p>
+      </div>
+
+      <div class="info-card">
+        <h4>3. Machine Learning Approaches</h4>
+        <p><strong>Classical Methods:</strong></p>
+        <ul>
+          <li>SVM for binary/multi-class classification</li>
+          <li>Random Forest with feature importance analysis (95% accuracy)</li>
+          <li>k-NN for real-time classification</li>
+          <li>Interpretable decision trees</li>
+        </ul>
+        <p><strong>Deep Learning:</strong></p>
+        <ul>
+          <li>CNN for spatial pattern recognition</li>
+          <li>LSTM for temporal sequence analysis</li>
+          <li>Hybrid CNN-LSTM architectures for superior performance</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h4>4. Signal Processing Techniques</h4>
+        <ul>
+          <li>Filtering (low-pass, high-pass, band-pass)</li>
+          <li>Calibration algorithms (automatic, static, dynamic)</li>
+          <li>Drift compensation through zero velocity updates (ZUPT) and periodic recalibration</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <h4>5. Real-Time Processing Architectures</h4>
+        <ul>
+          <li>Embedded systems (ARM Cortex-M microcontrollers, FPGA)</li>
+          <li>Mobile and edge computing (smartphone processing, edge computing)</li>
+          <li>Cloud-based processing for storage and model training</li>
+        </ul>
+      </div>
+
+      <h3>Main Results and Contributions</h3>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h4>&lt;2.3°</h4>
+          <p>Sensor Fusion: Kalman Filter (S4) RMSE</p>
+        </div>
+        <div class="stat-card">
+          <h4>95%</h4>
+          <p>Machine Learning: Random Forest (S18) Accuracy</p>
+        </div>
+        <div class="stat-card">
+          <h4>&lt;15ms</h4>
+          <p>Real-Time: Madgwick Filter (S23) Latency</p>
+        </div>
+        <div class="stat-card">
+          <h4>4.2°</h4>
+          <p>Biomechanical: IK Approach (S6) Precision</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h4>Key Findings by Category:</h4>
+        <p><strong>Neural Networks (S11):</strong> Implemented IMU location identification and adaptive calibration with MAE optimization</p>
+        <p><strong>Embedded Systems (S12):</strong> Demonstrated sophisticated monitoring on resource-constrained platforms using moving average filters and adaptive thresholds</p>
+        <p><strong>Biomechanical Modeling (S6):</strong> Integrated IMU data with multibody spine models, achieving 4.2° accuracy with efficient processing times</p>
+      </div>
+
+      <h3>Comparative Analysis</h3>
+
+      <div class="highlight-box">
+        <h3>Meta-Analysis Results</h3>
+        <ul>
+          <li>Quaternion-based implementations consistently outperform Euler angle approaches</li>
+          <li>30-40% reduction in orientation estimation errors</li>
+          <li>Kalman filters achieve highest accuracy (RMSE &lt;2.5°)</li>
+          <li>Complementary filters offer best efficiency/precision balance</li>
+          <li>Machine learning approaches achieve &gt;90% classification accuracy</li>
+        </ul>
+      </div>
+
+      <h3>Application-Specific Recommendations</h3>
+
+      <div class="two-column">
+        <div class="info-card">
+          <h4>High-Precision Clinical Applications</h4>
+          <p>Use Kalman filter-based sensor fusion combined with biomechanical modeling</p>
+        </div>
+
+        <div class="info-card">
+          <h4>Workplace Ergonomics</h4>
+          <p>Implement optimized complementary or Madgwick filters with threshold-based detection</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h4>Research and Automated Assessment</h4>
+        <p>Employ machine learning approaches (Random Forest, LSTM) that require substantial training data but offer classification accuracy &gt;90%</p>
+      </div>
+
+      <div class="highlight-box">
+        <h3>Conclusions</h3>
+        <p>The software component is critical for transforming raw sensor data into clinically meaningful measurements and actionable feedback. Appropriate selection and implementation of sensor fusion algorithms, orientation representations, signal processing techniques, and feedback mechanisms directly determine system accuracy, reliability, and usability.</p>
+        <p><strong>Key Findings:</strong> Quaternion-based orientation representation consistently reduces errors by 30-40%, Kalman filter implementations achieve RMSE &lt;2.5°, and machine learning methods exceed 90% classification accuracy.</p>
+      </div>
+    </div>
+
+    <!-- HARDWARE TAB -->
+    <div id="hardware" class="tab-content">
+      <h2>Hardware Configurations for Wearable Spinal Posture Measurement Systems</h2>
+
+      <div class="highlight-box">
+        <h3>Optimal Hardware Configuration</h3>
+        <ul>
+          <li><strong>Sensors:</strong> 3 magneto-inertial IMUs at T12, L3-L4, S1 positions</li>
+          <li><strong>Sampling frequency:</strong> 100-150 Hz</li>
+          <li><strong>Sensor fusion:</strong> Kalman filtering with magnetometer reference</li>
+          <li><strong>Protocol:</strong> Bluetooth Low Energy 5.0</li>
+          <li><strong>Power budget:</strong> 140-165 mW (6-8h runtime)</li>
+          <li><strong>Batteries:</strong> Li-Po 800-1600 mAh</li>
+          <li><strong>Processing:</strong> On-device angle estimation + optional cloud archival</li>
+        </ul>
+      </div>
+
+      <h3>Comparison of 12 Evaluated Systems</h3>
+
+      <div class="systems-table">
+        <table>
+          <thead>
+            <tr>
+              <th>System</th>
+              <th>Type</th>
+              <th>Precision</th>
+              <th>Frequency</th>
+              <th>Power</th>
+              <th>Protocol</th>
+              <th>ICC</th>
+              <th>Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>S1</td>
+              <td>Magneto-IMU</td>
+              <td>±2.5°</td>
+              <td>100 Hz</td>
+              <td>125 mW</td>
+              <td>BLE 5.0</td>
+              <td>0.92</td>
+              <td>2021</td>
+            </tr>
+            <tr>
+              <td>S2</td>
+              <td>Accel 3-DOF</td>
+              <td>±3.0°</td>
+              <td>50 Hz</td>
+              <td>85 mW</td>
+              <td>Zigbee</td>
+              <td>0.88</td>
+              <td>2021</td>
+            </tr>
+            <tr>
+              <td>S3</td>
+              <td>IMU+Gyro</td>
+              <td>±2.0°</td>
+              <td>200 Hz</td>
+              <td>220 mW</td>
+              <td>Wi-Fi 6</td>
+              <td>0.95</td>
+              <td>2022</td>
+            </tr>
+            <tr>
+              <td>S4</td>
+              <td>Multi-axis</td>
+              <td>±1.8°</td>
+              <td>100 Hz</td>
+              <td>45 mW</td>
+              <td>BLE 5.2</td>
+              <td>0.89</td>
+              <td>2022</td>
+            </tr>
+            <tr>
+              <td>S5</td>
+              <td>Magneto-IMU</td>
+              <td>±2.2°</td>
+              <td>150 Hz</td>
+              <td>150 mW</td>
+              <td>LoRa</td>
+              <td>0.91</td>
+              <td>2023</td>
+            </tr>
+            <tr>
+              <td>S6</td>
+              <td>Cap+IMU</td>
+              <td>±1.5°</td>
+              <td>100 Hz</td>
+              <td>95 mW</td>
+              <td>NB-IoT</td>
+              <td>0.87</td>
+              <td>2024</td>
+            </tr>
+            <tr>
+              <td>S7</td>
+              <td>Wrist IMU</td>
+              <td>±3.5°</td>
+              <td>100 Hz</td>
+              <td>38 mW</td>
+              <td>BLE 4.2</td>
+              <td>0.84</td>
+              <td>2024</td>
+            </tr>
+            <tr>
+              <td>S8</td>
+              <td>Triaxial</td>
+              <td>±1.9°</td>
+              <td>100 Hz</td>
+              <td>110 mW</td>
+              <td>BLE 5.0</td>
+              <td>0.93</td>
+              <td>2023</td>
+            </tr>
+            <tr>
+              <td>S9</td>
+              <td>IMU+Incl</td>
+              <td>±2.1°</td>
+              <td>50 Hz</td>
+              <td>75 mW</td>
+              <td>802.15.4</td>
+              <td>0.86</td>
+              <td>2024</td>
+            </tr>
+            <tr>
+              <td>S10</td>
+              <td>Tri-axis</td>
+              <td>±1.6°</td>
+              <td>200 Hz</td>
+              <td>140 mW</td>
+              <td>BLE mesh</td>
+              <td>0.96</td>
+              <td>2022</td>
+            </tr>
+            <tr>
+              <td>S11</td>
+              <td>Optical+Inertial</td>
+              <td>±1.3°</td>
+              <td>100 Hz</td>
+              <td>200 mW</td>
+              <td>Wi-Fi Direct</td>
+              <td>0.94</td>
+              <td>2021</td>
+            </tr>
+            <tr>
+              <td><strong>S12</strong></td>
+              <td><strong>IMU+ML</strong></td>
+              <td><strong>±1.4°</strong></td>
+              <td><strong>120 Hz</strong></td>
+              <td><strong>165 mW</strong></td>
+              <td><strong>5G</strong></td>
+              <td><strong>0.97</strong></td>
+              <td><strong>2025</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Clinical Applications</h3>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h4>&lt;20ms</h4>
+          <p>Latency for Real-Time Clinical Feedback</p>
+        </div>
+        <div class="stat-card">
+          <h4>40h</h4>
+          <p>Extended Battery for Occupational Monitoring</p>
+        </div>
+        <div class="stat-card">
+          <h4>ICC≥0.95</h4>
+          <p>Optimal Clinical-Grade Performance</p>
+        </div>
+        <div class="stat-card">
+          <h4>±1.6°</h4>
+          <p>Maximum Precision Achieved</p>
+        </div>
+      </div>
+
+      <div class="two-column">
+        <div class="info-card">
+          <h4>Real-Time Clinical Feedback</h4>
+          <p><strong>Configuration:</strong> 3-point + BLE</p>
+          <p><strong>Application:</strong> Instantaneous exercise correction</p>
+          <p><strong>Latency:</strong> &lt;20ms</p>
+        </div>
+
+        <div class="info-card">
+          <h4>Occupational Monitoring</h4>
+          <p><strong>Design:</strong> Extended-battery designs (40h)</p>
+          <p><strong>Application:</strong> Continuous workplace surveillance</p>
+        </div>
+      </div>
+
+      <div class="two-column">
+        <div class="info-card">
+          <h4>Telerehabilitation</h4>
+          <p><strong>Protocols:</strong> Long-range (LoRaWAN/NB-IoT)</p>
+          <p><strong>Application:</strong> Remote monitoring across healthcare networks</p>
+        </div>
+
+        <div class="info-card">
+          <h4>Research Applications</h4>
+          <p><strong>Systems:</strong> Hybrid optical-inertial systems</p>
+          <p><strong>Application:</strong> Gold-standard validation benchmarks</p>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <h3>Conclusion</h3>
+        <p>Three-point distributed IMU arrays utilizing Bluetooth Low Energy wireless protocols and Kalman-filtered sensor fusion achieve optimal clinical-grade performance (ICC≥0.95, accuracy ±1.6°) while maintaining practical wearability and 6-8 hour runtime via lithium-polymer batteries.</p>
+      </div>
+    </div>
+
+    <!-- STATISTICS TAB -->
+    <div id="statistics" class="tab-content">
+      <h2>Wearable System For Monitoring Spinal Posture - Statistical Analysis</h2>
+
+      <div class="highlight-box">
+        <h3>Abstract</h3>
+        <p>This study presents the development and validation of an MIMU-based system for spinal posture monitoring through controlled simulations. The device consists of three Magneto-Inertial Measurement Units (MIMUs) positioned at T3, T12, and S1, whose orientation data are processed to estimate thoracic kyphosis and lumbar lordosis angles using quaternion-to-rotation matrix conversions.</p>
+        <p><strong>Results:</strong> Strong agreement between the MIMU system and the reference model, with an average error below 1°, confirming the robustness of the proposed approach for clinical or ergonomic use.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Research Problem</h3>
+        <p>How to design and statistically validate a wearable system that allows spinal posture to be measured and analyzed with precision, consistency, and clinical applicability.</p>
+        <p><strong>Gap Identified:</strong> Most studies have methodological limitations related to sample size, lack of standardization in data collection, or absence of robust statistical analyses that validate the reliability of measurements.</p>
+      </div>
+
+      <h3>Methodology</h3>
+
+      <div class="info-card">
+        <h4>Literature Review (30 Scientific Articles)</h4>
+        <p><strong>Analysis Focus:</strong> Technologies used (inertial sensors, wireless communication, signal processing algorithms) and statistical methodologies to evaluate accuracy, reliability, and usability</p>
+        <p><strong>Quality Assessment Tools:</strong> QUADAS-2, QAREL, Newcastle-Ottawa</p>
+        <p><strong>Trend Identified:</strong> Use of IMUs, electromagnetic sensors, and low-consumption microstrip antennas for wireless data transmission</p>
+      </div>
+
+      <div class="info-card">
+        <h4>Component Selection: MIMU vs Other Technologies</h4>
+        <table class="comparison-table">
+          <tr>
+            <th>System Type</th>
+            <th>Advantages</th>
+            <th>Limitations</th>
+          </tr>
+          <tr>
+            <td><strong>IMU Systems</strong></td>
+            <td>High sensitivity, continuous recording, portability, low cost, extensive clinical evidence</td>
+            <td>Require precise calibration, dependence on anatomical placement, possible inter-subject variability</td>
+          </tr>
+          <tr>
+            <td><strong>MIMU Systems (Selected)</strong></td>
+            <td>Greater angular and spatial accuracy, compensation for gyroscope drift, suitable for prolonged or 3D measurements</td>
+            <td>Susceptible to magnetic interference, greater calibration complexity, higher cost and energy consumption</td>
+          </tr>
+          <tr>
+            <td><strong>sEMG Systems</strong></td>
+            <td>Analysis of compensatory muscle behavior, useful for fatigue studies</td>
+            <td>More invasive, sensitive to motion noise, require controlled conditions, limited field applicability</td>
+          </tr>
+          <tr>
+            <td><strong>Hybrid Systems</strong></td>
+            <td>Greater descriptive capacity, integration of multiple biomechanical variables</td>
+            <td>Greater technical complexity, less portability, higher cost, limited laboratory use</td>
+          </tr>
+        </table>
+        <p><strong>Selection Rationale:</strong> MIMU sensors were selected as the most appropriate alternative due to their balance between accuracy, stability, and cost.</p>
+      </div>
+
+      <h3>System Design and Validation</h3>
+
+      <div class="info-card">
+        <h4>Experimental Setup</h4>
+        <p><strong>MIMU Sensors:</strong> Three units placed on T3, T12, and S1 vertebrae</p>
+        <p><strong>Reference System:</strong> MoCap (Motion Capture) with 10 reflective markers from C7 to S2</p>
+        <p><strong>Clinical Tests:</strong> Forward bending and sit-to-stand exercises</p>
+      </div>
+
+      <div class="info-card">
+        <h4>Mathematical Foundation</h4>
+        <p><strong>Quaternion to Rotation Matrix Conversion:</strong></p>
+        <div class="formula-box">
+          R = [1-2(q₂²+q₃²)  2(q₁q₂-q₀q₃)  2(q₁q₃+q₀q₂)]<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;[2(q₁q₂+q₀q₃)  1-2(q₁²+q₃²)  2(q₂q₃-q₀q₁)]<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;[2(q₁q₃-q₀q₂)  2(q₂q₃+q₀q₁)  1-2(q₁²+q₂²)]
+        </div>
+        <p><strong>Pitch Angle Calculation:</strong> From rotation matrix R, the pitch angle (inclination with respect to vertical axis z′) is obtained to describe postural change</p>
+      </div>
+
+      <div class="info-card">
+        <h4>Angle Calculations</h4>
+        <p><strong>Thoracic Kyphosis:</strong> Pitch difference between T3 and T12</p>
+        <p><strong>Lumbar Lordosis:</strong> Pitch difference between T12 and S1</p>
+        <p><strong>MoCap Validation:</strong> Fifth-order polynomial adjusted to marker coordinates, with gradient and convexity change points defining thoracic and lumbar regions</p>
+      </div>
+
+      <h3>Simulation and Testing</h3>
+
+      <div class="info-card">
+        <h4>Simulated Sensor Data</h4>
+        <table class="comparison-table">
+          <tr>
+            <th>Sensor</th>
+            <th>Standing Posture (Pitch °)</th>
+            <th>Flexed Posture (Pitch °)</th>
+          </tr>
+          <tr>
+            <td>T3</td>
+            <td>10°</td>
+            <td>45°</td>
+          </tr>
+          <tr>
+            <td>T12</td>
+            <td>5°</td>
+            <td>35°</td>
+          </tr>
+          <tr>
+            <td>S1</td>
+            <td>0°</td>
+            <td>20°</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="info-card">
+        <h4>Postural Angle Calculations</h4>
+        <p><strong>Standing Posture:</strong></p>
+        <ul>
+          <li>Kyphosis = T3 - T12 = 10° - 5° = 5°</li>
+          <li>Lordosis = T12 - S1 = 5° - 0° = 5°</li>
+        </ul>
+        <p><strong>Flexed Posture:</strong></p>
+        <ul>
+          <li>Kyphosis = T3 - T12 = 45° - 35° = 10°</li>
+          <li>Lordosis = T12 - S1 = 35° - 20° = 15°</li>
+        </ul>
+        <p><strong>Interpretation:</strong> When flexing forward, kyphosis increases (more pronounced thoracic curvature) and lordosis also increases (more pronounced lumbar curvature)</p>
+      </div>
+
+      <div class="info-card">
+        <h4>Example: Rotation Matrix Calculation</h4>
+        <p>For sensor T12 with quaternion q = (0.9239, 0, 0.3827, 0):</p>
+        <div class="formula-box">
+          R = [0.7071  -0.7071  0     ]<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;[0.7071   0.7071  0     ]<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;[0        0       1     ]
+        </div>
+        <p><strong>Pitch extraction:</strong> pitch = arcsin(R₃₁) = arcsin(0) = 0°</p>
+      </div>
+
+      <h3>Quantitative Validation</h3>
+
+      <div class="info-card">
+        <h4>Root Mean Square Error (RMSE) Calculation</h4>
+        <div class="formula-box">
+          RMSE = √[(1/n) × Σ(MIMU - MoCap)²]
+        </div>
+        <p><strong>Reference System (MoCap) Values:</strong></p>
+        <ul>
+          <li>Kyphosis: 9°</li>
+          <li>Lordosis: 14°</li>
+        </ul>
+        <p><strong>MIMU System Values:</strong></p>
+        <ul>
+          <li>Kyphosis: 10°</li>
+          <li>Lordosis: 15°</li>
+        </ul>
+        <p><strong>RMSE Calculation:</strong></p>
+        <div class="formula-box">
+          RMSE = √[(1/2) × ((10-9)² + (15-14)²)]<br>
+          RMSE = √[(1/2) × (1 + 1)]<br>
+          RMSE = √1 = 1°
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h4>1°</h4>
+          <p>Average RMSE (MIMU vs MoCap)</p>
+        </div>
+        <div class="stat-card">
+          <h4>3°-5°</h4>
+          <p>Kyphosis RMSE Range</p>
+        </div>
+        <div class="stat-card">
+          <h4>5°-6°</h4>
+          <p>Lordosis RMSE Range</p>
+        </div>
+        <div class="stat-card">
+          <h4>&lt;5°</h4>
+          <p>Acceptable Error Threshold</p>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <h3>Validation Results</h3>
+        <p>The MIMU system has an average error of only 1° with respect to the reference system, which is within the acceptable range (&lt;5°) reported by Paloschi et al. (2021). This demonstrates the accuracy and stability of the model even in a simulation environment.</p>
+      </div>
+
+      <h3>Analysis of Results and Discussion</h3>
+
+      <div class="info-card">
+        <h4>Comparison: MIMU vs Reference Values</h4>
+        <div class="chart-placeholder">
+          <div>
+            <p><strong>Kyphosis Angles:</strong></p>
+            <p>MIMU: 10° | Reference: 9° | Difference: &lt;1°</p>
+            <br>
+            <p><strong>Lordosis Angles:</strong></p>
+            <p>MIMU: 15° | Reference: 14° | Difference: &lt;1°</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h4>Statistical Interpretation</h4>
+        <p><strong>High Correspondence:</strong> Results show minimal differences of less than 1° in all cases</p>
+        <p><strong>RMSE Close to 1°:</strong> Supports the accuracy and stability of the model</p>
+        <p><strong>Systematic vs Random Differences:</strong> Observed differences are slightly systematic (not random), potentially attributed to model simplification or idealized simulated data</p>
+        <p><strong>Real-World Considerations:</strong> In experimental contexts, values would tend to increase slightly due to sensor noise, MIMU displacement, or anatomical variations between subjects</p>
+      </div>
+
+      <div class="info-card">
+        <h4>Key Findings</h4>
+        <ul>
+          <li>Method based on orientation equations (quaternions → rotation matrix → angles) is robust for postural estimation</li>
+          <li>Performance within acceptable margin of error (&lt;5°) supports practical applicability in clinical settings</li>
+          <li>High agreement validates the quaternion-based approach for dynamic spinal curvature estimation</li>
+        </ul>
+      </div>
+
+      <h3>Literature Review Summary (30 Papers Analyzed)</h3>
+
+      <div class="info-card">
+        <h4>Technology Trends Identified</h4>
+        <p><strong>Dominant Technologies:</strong> IMU and MIMU sensors (accelerometers, gyroscopes, magnetometers)</p>
+        <p><strong>Communication Protocols:</strong> BLE, Zigbee, Wi-Fi, LoRa, NB-IoT</p>
+        <p><strong>Processing Approaches:</strong> Kalman filtering, complementary filters, CNN, LSTM, Random Forest</p>
+        <p><strong>Applications:</strong> Clinical rehabilitation, occupational health, ergonomics, telerehabilitation</p>
+      </div>
+
+      <div class="info-card">
+        <h4>Methodological Approaches</h4>
+        <ul>
+          <li>Cross-sectional design studies with IMU validation</li>
+          <li>Comparison with gold-standard systems (MoCap, stereophotogrammetry)</li>
+          <li>Machine learning for posture classification and activity recognition</li>
+          <li>Real-time self-calibrating algorithms</li>
+          <li>Virtual reality integration for ergonomic evaluation</li>
+        </ul>
+      </div>
+
+      <div class="highlight-box">
+        <h3>🎓 Conclusions</h3>
+        <p>This study presented and evaluated a postural monitoring system based on MIMU sensors using computational simulations to estimate kyphosis and lordosis angles. The results showed high coincidence with theoretical reference values, with a root mean square error close to 1°, validating the precision of the proposed method.</p>
+        <p><strong>Performance Validation:</strong> The model's performance is within the acceptable margin of error (&lt;5°), supporting its practical applicability in clinical or rehabilitation settings.</p>
+        <p><strong>Future Work:</strong> Experimental validations are recommended to strengthen reliability and real applicability, as the current study relies on simulated data.</p>
+        <p><strong>Main Contribution:</strong> Unlike studies focused solely on hardware design or correction algorithms, this work emphasizes statistical validation of measurements, guaranteeing objectivity and reproducibility of results.</p>
+      </div>
+
+      <div class="info-card">
+        <h4>Clinical and Research Implications</h4>
+        <ul>
+          <li>MIMU system represents a feasible alternative for dynamic spinal curvature estimation</li>
+          <li>Quantitative analysis allows identifying significant deviation thresholds</li>
+          <li>Provides metric indicators for future clinical or ergonomic research</li>
+          <li>Integration of robust statistical tools provides solid scientific basis for adoption in continuous postural monitoring</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function openTab(tabId) {
+      const contents = document.querySelectorAll('.tab-content');
+      const tabs = document.querySelectorAll('.tab');
+
+      contents.forEach(content => content.classList.remove('active'));
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
